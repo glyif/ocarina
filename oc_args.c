@@ -1,32 +1,33 @@
 #include "ocarina.h"
 #include <stdlib.h>
+#include <string.h>
 
 char **oc_args(char *command)
 {
-	int max_arg;
+	int buffsize;
 	int index;
 	char **args;
 	char *arg;
+	char *str;
 
-	max_arg = 10;
-
-	args = malloc(sizeof(*args) * max_arg);
+	buffsize = 100;
+	index = 0;
+	
+	args = malloc(sizeof(char *) * buffsize);
 
 	if (args == NULL)
 		return (NULL);
 
-	arg = oc_tokenize(command, " ");
-
-	index = 0;
+  	arg = strtok(command, " ,.-");
+  
 	while (arg != NULL)
 	{
-		args[index] = arg;
+    	args[index] = arg;
 		index++;
-
-		arg = oc_tokenize(command, " ");
-	}
-
+    	arg = strtok(NULL, " ,.-");
+  	}
+  
 	args[index] = NULL;
-
-	return (args);
+  
+	return args;
 }
