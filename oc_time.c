@@ -5,7 +5,12 @@
 void oc_time(void)
 {
 	char *commands;
+	char *commandscpy;
 	char *exit_status;
+	char **args;
+
+	int commands_len;
+
 	link *head;
 	head = NULL;
 
@@ -22,7 +27,15 @@ void oc_time(void)
 			return;
 		}
 
-		add_history(&head, commands);
+		commands_len = _strlen(commands);
+
+		commandscpy = malloc(commands_len * sizeof(char));
+
+		commandscpy = _strcpy(commandscpy, commands);
+		
+		args = oc_args(commands);
+
+		add_history(&head, commandscpy);
 
 		print_list(head);
 
