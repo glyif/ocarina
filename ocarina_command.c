@@ -1,7 +1,7 @@
 #include "ocarina.h"
 #include <stdio.h>
 
-int ocarina_command(char **args, link *ocarina)
+int ocarina_command(link *ocarina)
 {
 	int i;
 
@@ -9,22 +9,17 @@ int ocarina_command(char **args, link *ocarina)
 
 	tmp = ocarina;
   	
-	if (args[1] == NULL)
+	for (i = 0; i < 2; i++)
+		tmp = tmp->next;
+
+	if (tmp->command == NULL)
 	{
 		return (0);
   	}
   	else
   	{
-		if(_strcmp(args[1], "prev") == 0)
-		{
-			while(i < 3)
-				tmp = tmp->next;
-			
-			printf("%s\n", tmp->command);
-
-			
-		}
-  	}
+  		printf("This enters the ocarina command\n");
+	}
 
   	return 1;
 }

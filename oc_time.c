@@ -9,8 +9,11 @@ void oc_time(void)
 	int commands_len;
 	int exit_status;
 
+	commands_len = 0;
+
 	link *head;
 	link *args;
+	link *sep;
 	args = NULL;
 	head = NULL;
 
@@ -27,15 +30,14 @@ void oc_time(void)
 			return;
 		}
 
-		oc_args(args, commands);
+		sep = oc_args(&args, commands);
 
 		add_history(&head, commands);
 
 		print_list(head);
 
-		/* exit_status = oc_exec(args, head); */
+		exit_status = oc_exec(sep);
 
 		free(commands);
-		/* free(args); */
 	} while (exit_status == 0);
 }

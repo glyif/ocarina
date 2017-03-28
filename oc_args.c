@@ -3,11 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-void oc_args(link *head, char *command)
+link *oc_args(link **head, char *command)
 {
 	int c;
 	int i, j, spaces, distance;
 	char *str;
+
+	link *sep;
+	sep = NULL;
 
 	i = 0;
 	j = 0;
@@ -43,7 +46,7 @@ void oc_args(link *head, char *command)
 				j++;
 			}
 			
-			add_history(&head, str);
+			add_history(&sep, str);
 
 			j = i + 1;
 
@@ -53,5 +56,7 @@ void oc_args(link *head, char *command)
 
 		i++;
 	}
+
+	return (sep);
 
 }

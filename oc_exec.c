@@ -1,18 +1,22 @@
 #include "ocarina.h"
+#include <stdio.h>
 #include <stdlib.h>
 
-int oc_exec(char **args, link *ocarina)
+int oc_exec(link *ocarina)
 {
 	int i;
+
+	link *tmp;
+
+	tmp = ocarina;
 
 	router route[] = {
 		{"ocarina", ocarina_command},
 		{NULL, NULL}
 	};
 
-	for (i = 0; route[i].command != NULL; i++)
-		if (_strcmp(args[0], route[i].command) == 0)
-			return (route[i].f(args, ocarina));
+	if (_strcmp(route[0].command, tmp->command) == 0)
+		printf("hi\n\n");
 
 	return (0);
 }
