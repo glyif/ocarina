@@ -34,9 +34,7 @@ void oc_time(void)
 
 		add_history(&head, commands);
 
-		print_list(head);
-
-		exit_status = oc_exec(sep);
+		exit_status = oc_exec(sep, head);
 
 		free(commands);
 	} while (exit_status == 0);

@@ -1,25 +1,27 @@
 #include "ocarina.h"
 #include <stdio.h>
 
-int ocarina_command(link *ocarina)
+int ocarina_command(link *ocarina, link *history)
 {
-	int i;
-
 	link *tmp;
+	link *recall_history;
+	int integer;
 
-	tmp = ocarina;
-  	
-	for (i = 0; i < 2; i++)
-		tmp = tmp->next;
+	tmp = get_nodeint_at_index(ocarina, 1);
 
-	if (tmp->command == NULL)
+	if (tmp == NULL)
 	{
-		return (0);
-  	}
-  	else
-  	{
-  		printf("This enters the ocarina command\n");
+		printf("not enought arguments\n");
 	}
-
-  	return 1;
+	else
+	{
+		integer = string_int(tmp->command);
+		recall_history = get_nodeint_at_index(history, integer);
+		
+		if (recall_history == NULL)
+			printf("history doesn't go back that long\n");
+		else
+			printf("%s\n", recall_history->command);
+	}
+	return 0;
 }

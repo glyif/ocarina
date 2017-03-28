@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int oc_exec(link *ocarina)
+int oc_exec(link *ocarina, link *history)
 {
 	int i;
 
@@ -15,8 +15,10 @@ int oc_exec(link *ocarina)
 		{NULL, NULL}
 	};
 
-	if (_strcmp(route[0].command, tmp->command) == 0)
-		printf("hi\n\n");
+	
+	for (i = 0; route[i].command != NULL; i++)
+		if (_strcmp(route[i].command, tmp->command) == 0)
+			return route[i].f(ocarina, history);
 
 	return (0);
 }
