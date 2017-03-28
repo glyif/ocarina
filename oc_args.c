@@ -1,33 +1,57 @@
 #include "ocarina.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-char **oc_args(char *command)
+void oc_args(link *head, char *command)
 {
-	int buffsize;
-	int index;
-	char **args;
-	char *arg;
+	int c;
+	int i, j, spaces, distance;
 	char *str;
 
-	buffsize = 100;
-	index = 0;
-	
-	args = malloc(sizeof(char *) * buffsize);
+	i = 0;
+	j = 0;
+	distance = 0;
+	spaces = 0;
 
-	if (args == NULL)
-		return (NULL);
-
-  	arg = strtok(command, " ,.-");
-  
-	while (arg != NULL)
+	while (command[i] != '\0')
 	{
-    	args[index] = arg;
-		index++;
-    	arg = strtok(NULL, " ,.-");
-  	}
-  
-	args[index] = NULL;
-  
-	return args;
+		if (command[i] == ' ')
+		{
+			spaces++;
+		}
+		i++;
+	}
+
+	spaces++;
+
+	i = 0;
+
+	while (spaces > 0)
+	{
+		if (command[i] == ' ' || command[i] == '\0')
+		{
+			distance = (i - j) + 1;
+			str = malloc(sizeof(char) * distance);
+			
+			c = 0;
+
+			while(j < i)
+			{
+				str[c] = command[j];
+				c++;
+				j++;
+			}
+			
+			add_history(&head, str);
+
+			j = i + 1;
+
+			spaces--;
+			
+		}
+
+		i++;
+	}
+
 }
