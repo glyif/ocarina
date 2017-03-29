@@ -5,6 +5,7 @@
 
 ## Build Status
 Master: [![Build Status](https://travis-ci.org/glyif/ocarina.svg?branch=master)](https://travis-ci.org/glyif/ocarina)
+
 Dev: [![Build Status](https://travis-ci.org/glyif/ocarina.svg?branch=dev)](https://travis-ci.org/glyif/ocarina)
 
 ## Synopsis
