@@ -7,10 +7,9 @@ int ocarina_command(link *ocarina, link *history)
 	link *recall_history;
 	int integer;
 	int counter;
-	int i;
+	static int first;
+	static int c;
 
-	i = 0;
-	stop = list_len(history);
 	counter = list_len(history);
 	tmp = get_nodeint_at_index(ocarina, 1);
 
@@ -26,6 +25,23 @@ int ocarina_command(link *ocarina, link *history)
 			printf("that's all folks");
 		else
 			printf("%s\n", recall_history->command);
+	}
+	else if ((_strcmp(tmp->command, "up") == 0))
+	{
+		if (first == 0)
+		{
+			c = list_len(history);
+			c--;
+			recall_history = get_nodeint_at_index(history, c);
+			printf("%s\n", recall_history->command);
+			first++;
+		}
+		else if (first != 0)
+		{
+			c--;
+			recall_history = get_nodeint_at_index(history, c);
+			printf("%s\n", recall_history->command);
+		}
 	}
 	else
 	{
