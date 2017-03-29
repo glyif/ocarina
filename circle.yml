@@ -1,0 +1,9 @@
+## Customize the test machine
+machine:
+
+  timezone:
+    America/Los_Angeles # Set the timezone
+
+dependencies:
+    override:
+        - gcc ocarina.c add_history.c helper.c _history.c oc_args.c oc_commands.c oc_history.c oc_time.c print_list.c oc_exec.c ocarina_command.c -o ocarina:
