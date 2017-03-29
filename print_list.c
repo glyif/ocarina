@@ -3,9 +3,14 @@
 
 void print_list(link *head)
 {
-	while (head != NULL)
+	int i;
+	link *tmp;
+
+	tmp = head;
+
+	for (i = 0; tmp != NULL; i++)
 	{	
-		printf("%d: %s\n", head->index, head->command);
-		head = head->next;
+		printf("%d: %s\n", tmp->index, tmp->command);
+		tmp = tmp->next;
 	}
 }

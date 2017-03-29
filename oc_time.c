@@ -5,13 +5,16 @@
 void oc_time(void)
 {
 	char *commands;
-	char *commandscpy;
-	char *exit_status;
-	char **args;
 
 	int commands_len;
+	int exit_status;
+
+	commands_len = 0;
 
 	link *head;
+	link *args;
+	link *sep;
+	args = NULL;
 	head = NULL;
 
 	exit_status = 0;
@@ -27,17 +30,11 @@ void oc_time(void)
 			return;
 		}
 
-		commands_len = _strlen(commands);
+		sep = oc_args(&args, commands);
 
-		commandscpy = malloc(commands_len * sizeof(char));
+		add_history(&head, commands);
 
-		commandscpy = _strcpy(commandscpy, commands);
-		
-		args = oc_args(commands);
-
-		add_history(&head, commandscpy);
-
-		print_list(head);
+		exit_status = oc_exec(sep, head);
 
 		free(commands);
 	} while (exit_status == 0);

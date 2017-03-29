@@ -14,6 +14,6 @@ typedef struct router
 {
 	char *command;
 	
-	char **(*f)();
+	int (*f)();
 } router;
 #endif

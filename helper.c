@@ -1,3 +1,6 @@
+#include "ocarina.h"
+#include <stdlib.h>
+
 /**
  * _strcmp - compares string
  * @s1: first string
@@ -55,4 +58,64 @@ int _strlen(char *str)
 		;
 
 	return (i);
+}
+
+/**
+ * list_len - length of a list
+ * @head: head of the list
+ * Return: length of the list
+ */
+unsigned int list_len(link *head)
+{
+	int i;
+
+	for (i = 0; head->next != NULL; i++)
+		head = head->next;
+
+	return (i);
+}
+
+/**
+ * get_nodeint_at_index - fetches a node at a given point
+ * @head: head of a list
+ * @index: index of where to add node
+ *
+ * Return: struct pointer to new node
+ */
+
+link *get_nodeint_at_index(link *head, unsigned int index)
+{
+	link *tmp;
+
+	unsigned long len, i;
+
+	tmp = head;
+
+	len = list_len(tmp);
+
+	if (len < index)
+		return (NULL);
+
+	for (i = 0; i < index; i++)
+		tmp = tmp->next;
+
+	if (i == index)
+		return (tmp);
+	else
+		return (NULL);
+
+}
+
+unsigned int string_int(char *str)
+{
+	int len, i, num;
+
+	len = _strlen(str);
+
+	num = 0;
+
+	for (i = 0; i < len; i++)
+		num = num * 10 + ( str[i] - '0' );
+
+	return (num);
 }
