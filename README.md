@@ -150,7 +150,7 @@ This file has a many helper functions, most of them are rewrites of standard lib
 
 To build the project, you'll need to run:
 ```bash
-$ gcc ocarina.c add_history.c helper.c _history.c oc_args.c oc_commands.c oc_history.c oc_time.c print_list.c oc_exec.c ocarina_command.c -o ocarina
+$ make all
 $ ./ocarina
 ```
 
