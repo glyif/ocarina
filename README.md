@@ -173,7 +173,7 @@ In this case, `ocarina` will fetch the command of index 2 of the list which is `
 
 
 ## TODO
-- [ ] Be able to pass in arguments like `prev` and `next` to navigate up and down the list.
+- [x] Be able to pass in arguments like `prev` and `next` to navigate up and down the list.
 - [ ] Be able to use the up and down arrows to navigate up and down the list
 - [ ] Have the command get actually brought up into the command line instead of just printing it so it can be run again.
 - [ ] Get [@Julien Barbier](https://github.com/jbarbier) to say I did a good job ;)
