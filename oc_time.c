@@ -6,17 +6,11 @@ void oc_time(void)
 {
 	char *commands;
 
-	int commands_len;
 	int exit_status;
 
-	commands_len = 0;
-
 	link *head;
-	link *args;
 	link *sep;
-	args = NULL;
 	head = NULL;
-
 	exit_status = 0;
 
 	do
@@ -30,7 +24,7 @@ void oc_time(void)
 			return;
 		}
 
-		sep = oc_args(&args, commands);
+		sep = oc_args(commands);
 
 		add_history(&head, commands);
 

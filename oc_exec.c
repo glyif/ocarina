@@ -8,14 +8,13 @@ int oc_exec(link *ocarina, link *history)
 
 	link *tmp;
 
-	tmp = ocarina;
-
 	router route[] = {
 		{"ocarina", ocarina_command},
 		{NULL, NULL}
 	};
 
-	
+	tmp = ocarina;
+
 	for (i = 0; route[i].command != NULL; i++)
 		if (_strcmp(route[i].command, tmp->command) == 0)
 			return route[i].f(ocarina, history);
