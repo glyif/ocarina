@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-link *oc_args(link **head, char *command)
+link *oc_args(char *command)
 {
 	int c;
 	int i, j, spaces, distance;
