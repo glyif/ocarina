@@ -43,6 +43,19 @@ int ocarina_command(link *ocarina, link *history)
 			printf("%s\n", recall_history->command);
 		}
 	}
+	else if (_strcmp(tmp->command, "down") == 0)
+	{
+		if (first == 0)
+		{
+			printf("Sooo we don't know the future, run ocarina prev to recall first\n");
+		}
+		else if (first != 0)
+		{
+			c++;
+			recall_history = get_nodeint_at_index(history, c);
+			printf("%s\n", recall_history->command);
+		}
+	}
 	else
 	{
 		integer = string_int(tmp->command);
