@@ -3,6 +3,11 @@
 # ocarina
 ## Author: Bobby Yang (Batch 2)
 
+## Build Status
+Master: [![Build Status](https://travis-ci.org/glyif/ocarina.svg?branch=master)](https://travis-ci.org/glyif/ocarina)
+
+Dev: [![Build Status](https://travis-ci.org/glyif/ocarina.svg?branch=dev)](https://travis-ci.org/glyif/ocarina)
+
 ## Synopsis
 Ocarina is simple implementation of a doubly linked list built on top of a simple shell. Ocarina takes in commands and stores each command into a doubly linked list. So you can go back and access previous commands. I chose a doubly linked list instead of a singly linked list because then ocarina is able to retrieve commands relatively. For example I can retrieve a command that's `4` previous, then I can find commands relative to that command such as the command previous to that command.
 
